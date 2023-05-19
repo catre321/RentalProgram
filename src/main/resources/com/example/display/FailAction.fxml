@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.display.FailActionController" alignment="CENTER" spacing="10">
+
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label fx:id="errorMessage" style="-fx-text-fill: red; -fx-font-size: 16px;" />
+
+    <ImageView>
+        <Image url="FailIcon.jpg"/>
+        <fitWidth>100</fitWidth>
+        <fitHeight>100</fitHeight>
+    </ImageView>
+
+    <Button text="Re-enter information" onAction="#closeButtonAction" />
+
+</VBox>

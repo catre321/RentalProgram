@@ -1,0 +1,23 @@
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ComboBox?>
+<VBox xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.display.MenuController" alignment="CENTER" spacing="10" >
+
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label fx:id="label" text="You currently log in as DEFAULT, please choose an action:"  style="-fx-font-size: 14px;"/>
+    <ComboBox fx:id="comboBox" promptText="Choose an option..." onKeyPressed="#handleEnterKeyPressed" />
+
+    <HBox alignment="CENTER" spacing="20">
+        <Button text="Submit" onAction="#submitOption" />
+        <Button text="Back to Log in" onAction="#goBack2LogIn" />
+    </HBox>
+</VBox>

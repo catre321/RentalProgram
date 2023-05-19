@@ -1,0 +1,7 @@
+C001,Minh Dinh,18 Irwin Street,0421473243,7,VIP,minhdinh,123456,20,I002-1988,I005-2015
+C002,Hong Wang,20 Irwin Street,0424173255,0,GUEST,wanghong98,987654,0
+C003,Linh Nguyen,12 Brunswick Street,0424173255,3,REGULAR,linhtb,linhlinh,0
+C004,Antony Zinc,114 Fraser Avenue,0424512345,3,REGULAR,abookworm,booklover,0
+C005,John Cain,45 Sydney Road,0424325123,7,VIP,johnthebaby,123456,0
+C006,Dylan Case,02 West Drive,0424125598,6,REGULAR,dylanc,2222222,0
+C007,Hoang,catfish123456,09090909,8,VIP,catre,catre,30

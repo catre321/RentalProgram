@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.PasswordField?>
+
+<?import javafx.geometry.Insets?>
+
+<GridPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.example.display.NewCustomerController" alignment="CENTER" hgap="10" vgap="10" >
+
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <!--    add to make it to do not spread out when expand the scene   -->
+    <columnConstraints>
+        <ColumnConstraints hgrow="NEVER" />
+        <ColumnConstraints hgrow="ALWAYS" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints vgrow="NEVER" />
+        <RowConstraints vgrow="NEVER" />
+        <RowConstraints vgrow="NEVER" />
+        <RowConstraints vgrow="NEVER" />
+        <RowConstraints vgrow="NEVER" />
+        <RowConstraints vgrow="NEVER" />
+        <RowConstraints vgrow="NEVER" />
+        <RowConstraints vgrow="NEVER" />
+    </rowConstraints>
+
+    <Label fx:id="label" text="Please enter your information:" style="-fx-font-size: 14px;" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
+
+    <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+    <TextField fx:id="inputName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+    <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+    <TextField fx:id="inputAddress" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+    <Label text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+    <TextField fx:id="inputPhone" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+    <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+    <TextField fx:id="inputUsername" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+    <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+    <PasswordField fx:id="inputPassword" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+    <Button fx:id="submitButton" text="Submit" onAction="#submitNewCustomer" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+    <Button text="Close" onAction="#closeButtonAction" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+
+</GridPane>
