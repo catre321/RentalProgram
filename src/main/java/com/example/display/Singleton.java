@@ -121,7 +121,7 @@ public class Singleton {
         Image icon = new Image("Catfish.jpg");
 
         dialogStage.getIcons().add(icon);
-        dialogStage.setTitle("The rental program");
+        dialogStage.setTitle("The rental program - Group 22 - Individual");
         dialogStage.setScene(scene);
         dialogStage.show();
 
