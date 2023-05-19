@@ -10,8 +10,6 @@ import com.nguyenhoang.stock.DVD;
 import com.nguyenhoang.stock.VideoGame;
 import com.nguyenhoang.client.Customer;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import java.io.*;
 import java.util.ArrayList;
 
