@@ -1,9 +1,7 @@
 item:
 # an item record has the following format
 #ID,Title,Rent type,Loan type,Number of copies,rental fee,[genre] if it is a video record or a DVD
-#you can remove or ignore these comments (start with #) when you run your program
 
 customer:
 # a customer record has the following format
 #ID,Name,Address,Phone,Number of rentals,customer type, username, password, rewardPoint (if it's a VIP) followed by a list of items' IDs
-#you can remove or ignore these comments (start with #) when you run your program
