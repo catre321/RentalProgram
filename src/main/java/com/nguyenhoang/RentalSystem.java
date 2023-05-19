@@ -1,4 +1,5 @@
 package com.nguyenhoang;
+
 import com.nguyenhoang.client.GuestAccount;
 import com.nguyenhoang.client.RegularAccount;
 import com.nguyenhoang.client.VIPAccount;
@@ -8,15 +9,11 @@ import com.nguyenhoang.stock.MovieRecord;
 import com.nguyenhoang.stock.DVD;
 import com.nguyenhoang.stock.VideoGame;
 import com.nguyenhoang.client.Customer;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
-
 import java.io.*;
-
-
 import java.util.ArrayList;
-
 
 
 public class RentalSystem {
@@ -25,10 +22,6 @@ public class RentalSystem {
 
     public void setItems(ArrayList<Item> itemList) {
         this.itemList = itemList;
-    }
-
-    public ObservableList<Item> getOservableItems() {
-        return FXCollections.observableArrayList(this.itemList);
     }
 
     public RentalSystem() {
@@ -299,40 +292,6 @@ public class RentalSystem {
     public ArrayList<Customer> getCustomersList(){
         return customersList;
     }
-    public Item searchItem(String title) {
-        for (int i = 0; i < itemList.size(); i++) {
-            if (itemList.get(i).getTitle().equals(title))
-                return itemList.get(i);
-        }
-        return null;
-    }
-
-    public ArrayList<Item> getAllOutOfStockItems() {
-        ArrayList<Item> outOfStockItems = new ArrayList<>();
-        for (int i = 0; i < itemList.size(); i++) {
-            if (itemList.get(i).getNumCopies() <= 0)
-                outOfStockItems.add(itemList.get(i));
-        }
-        return outOfStockItems;
-    }
-    public boolean deleteItem(String title) {
-        for (int i = 0; i < itemList.size(); i++) {
-            if (itemList.get(i).getTitle().equals(title)) {
-                itemList.remove(i);
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public Customer searchCustomer(String name){
-        for(int i = 0; i < customersList.size(); i++){
-            if(customersList.get(i).getName().equals(name)){
-                return customersList.get(i);
-            }
-        }
-        return null;
-    }
 
     public ArrayList<Customer> searchCustomerGroup(Enum.AccountType group){
         ArrayList<Customer> foundCustomer = new ArrayList<>();
@@ -481,15 +440,6 @@ public class RentalSystem {
 
     public void removeAnItem(Item item) {
         itemList.remove(item);
-    }
-
-    public Customer getCustomer(String customerId) {
-        for (int i = 0; i < customersList.size(); i++) {
-            if (customersList.get(i).getId().equals(customerId)) {
-                return customersList.get(i);
-            }
-        }
-        return null;
     }
 
     public Customer updateCustomer(String customerId, String name, String address, String phone, String username, String password) {
