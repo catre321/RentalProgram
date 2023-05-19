@@ -57,10 +57,6 @@ public class Item {
         return rentalFee;
     }
 
-    public boolean isRentalStatus() {
-        return rentalStatus;
-    }
-
     public String getYearPublished() {
         return id.substring(5);
     }

@@ -100,10 +100,6 @@ public class Customer {
         this.password = password;
     }
 
-    public void setAccountType(Enum.AccountType accountType) {
-        this.accountType = accountType;
-    }
-
     public void rentAnItem(Item item) {
         this.items.add(item);
     }
