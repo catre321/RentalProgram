@@ -18,9 +18,6 @@ public class RentalSystem {
     private ArrayList<Item> itemList = new ArrayList<>();
     private ArrayList<Customer> customersList = new ArrayList<>();
 
-    public void setItems(ArrayList<Item> itemList) {
-        this.itemList = itemList;
-    }
 
     public RentalSystem() {
         readItemFromFile();
