@@ -17,7 +17,7 @@
     </padding>
 
     <HBox fx:id="useInDisplayItem" alignment="CENTER" spacing="10">
-        <Button text="Show all out of stock" onAction="#showAllOutOfStockItem" />
+        <Button fx:id="showOutOfStockButton" text="Show all out of stock" onAction="#showAllOutOfStockItem" />
         <TextField fx:id="searchField" promptText="Search...(left blank to show all)" onKeyPressed="#handleEnterKeyPressed"/>
         <Button text="Search" onAction="#searchAction" />
         <Button fx:id="newItemButton" text="Add a new item" onAction="#newItemAction" />

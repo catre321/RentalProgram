@@ -31,7 +31,7 @@ public class DisplayItemsv2Controller {
     @FXML
     private HBox useInDisplayItem;
     @FXML
-    private Button newItemButton;
+    private Button newItemButton, showOutOfStockButton;
     @FXML
     private TableView<Item> itemTable;
     @FXML
@@ -114,7 +114,7 @@ public class DisplayItemsv2Controller {
                             if(!singleton.rentalSystem.writeItemToFile()){
                                 throw new Exception("Item data has NOT saved successfully");
                             }
-                            System.out.println("Item has been rented successfully");
+                            System.out.println("Item has been rented and saved successfully");
 
                             singleton.setCustomerItemList();
                             singleton.itemObservableList.set(index, item);
@@ -141,11 +141,11 @@ public class DisplayItemsv2Controller {
             }
         }
         public void returnAnItem(String username){
-            button.setOnAction((ActionEvent event) -> {
-                int indexItem = getIndex();
+            button.setOnAction((ActionEvent event) -> {        
                 int indexCustomer = singleton.findCustomerIndex(username);
 
-                Item item = getTableView().getItems().get(indexItem);
+                Item item = getTableView().getItems().get(getIndex());
+                int indexItem = singleton.findItemIndex(item.getIdNumber());
                 try {
                     Customer customer = singleton.rentalSystem.removeFromCustomerRentedItems(username, item);
                     if(customer == null){
@@ -237,6 +237,7 @@ public class DisplayItemsv2Controller {
 
             case "customerRentedList":
                 newItemButton.setVisible(false);
+                showOutOfStockButton.setVisible(false);
                 returnColumn.setCellFactory(column -> {
                     return new TableCellButton("Return");
                 });

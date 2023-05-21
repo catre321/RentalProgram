@@ -173,6 +173,16 @@ public class DisplayCustomersController {
         } else {
             customerTable.setItems(filteredCustomers);
         }
+        
+        showAllRentedColumn.setCellFactory(column ->{
+            return new TableCellButton("Show All Rented");
+        });
+        promoteColumn.setCellFactory(column ->{
+            return new TableCellButton("Promote");
+        });
+        getRewardColumn.setCellFactory(column -> {
+            return new TableCellButton("Get reward");
+        });
         customerTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 
