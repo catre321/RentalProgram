@@ -48,8 +48,7 @@ public class DisplayCustomersController {
     private TableColumn<Customer, Button> showAllRentedColumn = new TableColumn<>("Show all rented");
     private TableColumn<Customer, Button> getRewardColumn = new TableColumn<>("Get reward");
 
-    @FXML
-    private void closeButtonAction(ActionEvent event) {
+    public void closeButtonAction(ActionEvent event) {
         Stage stage =(Stage)((Node)event.getSource()).getScene().getWindow();
         stage.close();
     }

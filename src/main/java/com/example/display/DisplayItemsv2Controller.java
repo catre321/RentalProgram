@@ -24,7 +24,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class DisplayItemsv2Controller {
-    Singleton singleton = Singleton.getInstance();
+    private Singleton singleton = Singleton.getInstance();
     private String type;
     @FXML
     private TextField searchField;

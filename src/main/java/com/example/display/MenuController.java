@@ -11,7 +11,7 @@ import javafx.scene.input.KeyEvent;
 import java.io.IOException;
 
 public class MenuController {
-    Singleton singleton = Singleton.getInstance();
+    private Singleton singleton = Singleton.getInstance();
     @FXML
     private ComboBox<String> comboBox;
     @FXML

@@ -24,15 +24,6 @@ public class Item {
         this.rentalStatus = rentalStatus;
     }
 
-    public static Item findItemById(ArrayList<Item> itemList, String id) {
-        for (int i = 0; i < itemList.size(); i++) {
-            if (itemList.get(i).getId().equals(id)) {
-                return itemList.get(i);
-            }
-        }
-        return null; // Item with given ID not found
-    }
-
     public String getId() {
         return id;
     }

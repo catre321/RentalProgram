@@ -1,5 +1,7 @@
 package com.example.display;
 
+import java.io.IOException;
+
 import com.nguyenhoang.RentalSystem;
 import com.nguyenhoang.setvalue.Enum;
 import com.nguyenhoang.stock.DVD;
@@ -8,20 +10,16 @@ import com.nguyenhoang.stock.MovieRecord;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 
 public class NewItemController {
-    Singleton singleton = Singleton.getInstance();
-    private RentalSystem rentalSystem = singleton.rentalSystem;
+    private Singleton singleton = Singleton.getInstance();
     private int itemIdNumber;
     private int index;
     @FXML
@@ -84,7 +82,7 @@ public class NewItemController {
         try {
             checkInput();
 
-            itemIdNumber = this.rentalSystem.getHighestItemId();
+            itemIdNumber = singleton.rentalSystem.getHighestItemId();
             itemIdNumber++;
 
             String year = inputYearPublished.getText();
@@ -156,8 +154,8 @@ public class NewItemController {
             }
         }
     }
-    @FXML
-    private void closeButtonAction(ActionEvent event) {
+    
+    public void closeButtonAction(ActionEvent event) {
         Stage stage =(Stage)((Node)event.getSource()).getScene().getWindow();
         stage.close();
 

@@ -18,8 +18,7 @@ import java.io.IOException;
 
 
 public class NewCustomerController {
-    Singleton singleton = Singleton.getInstance();
-    private RentalSystem rentalSystem = singleton.rentalSystem;
+    private Singleton singleton = Singleton.getInstance();
     @FXML
     private Label label;
     @FXML
@@ -62,9 +61,9 @@ public class NewCustomerController {
             String username = inputUsername.getText();
             String password = inputPassword.getText();
 
-            Customer updatedCustomer = rentalSystem.updateCustomer(customerId, name, address, phone, username, password);
+            Customer updatedCustomer = singleton.rentalSystem.updateCustomer(customerId, name, address, phone, username, password);
             System.out.println("An customer has been SUCCESSFULLY updated");
-            if (!rentalSystem.writeCustomerToFile()) {
+            if (!singleton.rentalSystem.writeCustomerToFile()) {
                 throw new Exception("An customer has NOT been saved to file successfully");
             }
 
@@ -94,7 +93,7 @@ public class NewCustomerController {
         try {
             checkInput();
 
-            int customerIdNumber = this.rentalSystem.getHighestCustomerId();
+            int customerIdNumber = singleton.rentalSystem.getHighestCustomerId();
             customerIdNumber++;
 
             String id = String.format("C%03d", customerIdNumber);
@@ -106,9 +105,9 @@ public class NewCustomerController {
 
             Enum.AccountType accountType = Enum.AccountType.GUEST;
 
-            Customer newCustomer = rentalSystem.addCustomer(id, name, address, phone, accountType, username, password);
+            Customer newCustomer = singleton.rentalSystem.addCustomer(id, name, address, phone, accountType, username, password);
             System.out.println("An customer has been SUCCESSFULLY added");
-            if (!rentalSystem.writeCustomerToFile()) {
+            if (!singleton.rentalSystem.writeCustomerToFile()) {
                 throw new Exception("An customer has NOT been saved to file successfully");
             }
 

@@ -30,6 +30,7 @@ public class Singleton {
     public String usernameLogIn;
     public String passwordLogIn;
     public String usernameCustomer;
+
     private Singleton() {
         rentalSystem = new RentalSystem();
         itemObservableList = FXCollections.observableArrayList(rentalSystem.getItemsList());
@@ -70,6 +71,7 @@ public class Singleton {
             return true;
         }
     }
+
     public FXMLLoader switch2Scene(String fxml, ActionEvent event) throws IOException {
         Stage stage;
         FXMLLoader fxmlLoader = new FXMLLoader(DisplayApplication.class.getResource(fxml));
@@ -82,6 +84,7 @@ public class Singleton {
 
         return fxmlLoader;
     }
+
     public void SuccessModalDialog(String fxml, String message) throws Exception {
         Stage dialogStage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(DisplayApplication.class.getResource(fxml));
@@ -97,6 +100,7 @@ public class Singleton {
         dialogStage.setScene(scene);
         dialogStage.showAndWait();
     }
+
     public void FailModalDialog(String fxml, String message) throws IOException {
         Stage dialogStage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(DisplayApplication.class.getResource(fxml));
@@ -112,6 +116,7 @@ public class Singleton {
         dialogStage.setScene(scene);
         dialogStage.showAndWait();
     }
+    
     public FXMLLoader modalDialog(String fxml) throws IOException {
         Stage dialogStage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(DisplayApplication.class.getResource(fxml));

@@ -12,7 +12,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class PromoteCustomerController {
-    Singleton singleton = Singleton.getInstance();
+    private Singleton singleton = Singleton.getInstance();
     @FXML
     private ComboBox<String> customerTypeComboBox;
     @FXML

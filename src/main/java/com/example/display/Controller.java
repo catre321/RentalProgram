@@ -11,8 +11,9 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 public class Controller {
-    public Button createAccountButton;
-    Singleton singleton = Singleton.getInstance();
+    private Singleton singleton = Singleton.getInstance();
+    @FXML
+    private Button createAccountButton;
     @FXML
     private TextField inputUsername, inputPassword;
     @FXML

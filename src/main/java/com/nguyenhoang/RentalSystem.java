@@ -24,6 +24,15 @@ public class RentalSystem {
         readCustomerFromFile();
     }
 
+    public Item findItemById(String id) {
+        for (int i = 0; i < itemList.size(); i++) {
+            if (itemList.get(i).getId().equals(id)) {
+                return itemList.get(i);
+            }
+        }
+        return null;
+    }
+
     public boolean readItemFromFile(){
         String line;
         // readItemFromFile item from file
@@ -74,7 +83,7 @@ public class RentalSystem {
                 int rewardPoints = Integer.parseInt(data[8]);
 
                 for (int i = 9; i < data.length; i++) {
-                    Item item = Item.findItemById(itemList, data[i]);
+                    Item item = findItemById(data[i]);
                     customerItemList.add(item);
                 }
 
