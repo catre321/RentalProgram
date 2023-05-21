@@ -173,7 +173,7 @@ public class DisplayCustomersController {
         } else {
             customerTable.setItems(filteredCustomers);
         }
-        
+
         showAllRentedColumn.setCellFactory(column ->{
             return new TableCellButton("Show All Rented");
         });
@@ -187,8 +187,12 @@ public class DisplayCustomersController {
     }
 
     public void handleEnterKeyPressed(KeyEvent event) {
-        if(event.getCode() == KeyCode.ENTER) {
-            searchAction();
+        if (event.getCode() == KeyCode.ENTER) {
+            if (event.getSource() == searchField) {
+                searchAction();
+            } else if (event.getSource() == groupComboBox) {
+                showAGroupOfCustomerAction();
+            }
         }
     }
 

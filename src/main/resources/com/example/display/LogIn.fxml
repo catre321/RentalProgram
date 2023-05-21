@@ -24,7 +24,7 @@
 
     <HBox alignment="CENTER" spacing="20">
         <Button text="Log in" onAction="#submitInput" />
-        <Button text="Sign in" fx:id="signInButton" onAction="#addNewCustomer" />
+        <Button text="Create account" fx:id="createAccountButton" onAction="#addNewCustomer" />
         <Button text="Back" onAction="#backToLandingPage" />
     </HBox>
 
