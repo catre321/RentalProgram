@@ -34,6 +34,7 @@ public class RentalSystem {
     }
 
     public boolean readItemFromFile(){
+        long startTime = System.currentTimeMillis();
         String line;
         // readItemFromFile item from file
         try (BufferedReader br = new BufferedReader(new FileReader("items.txt"))) {
@@ -58,14 +59,19 @@ public class RentalSystem {
                     itemList.add(new VideoGame(id, title, rentalType, loanType, numCopies, rentalFee, rentalStatus));
                 }
             }
+            br.close();
         } catch (IOException e) {
             System.err.format("IOException: %s%n", e);
             return false;
         }
+        long endTime = System.currentTimeMillis();
+        long executionTime = endTime - startTime;
+        System.out.println("readItemFromFile() execution time: " + executionTime + " ms");
         return true;
     }
 
     public boolean readCustomerFromFile(){
+        long startTime = System.currentTimeMillis();
         String line;
 
         try (BufferedReader br = new BufferedReader(new FileReader("customers.txt"))) {
@@ -96,10 +102,14 @@ public class RentalSystem {
                     customersList.add(new VIPAccount(id, name, address, phone, count, customerItemList, username, password, accountType, rewardPoints));
                 }
             }
+            br.close();
         } catch (IOException e) {
             e.printStackTrace();
             return false;
         }
+        long endTime = System.currentTimeMillis();
+        long executionTime = endTime - startTime;
+        System.out.println("readCustomerFromFile() execution time: " + executionTime + " ms");
         return true;
     }
 
@@ -129,6 +139,7 @@ public class RentalSystem {
 
                 bw.newLine();
             }
+            bw.close();
         } catch (IOException e) {
             System.err.format("IOException: %s%n", e);
             return false;
@@ -174,6 +185,7 @@ public class RentalSystem {
                 bw.write(line.toString());
                 bw.newLine();
             }
+            bw.close();
         } catch (IOException e) {
             System.err.format("IOException: %s%n", e);
             return false;
@@ -249,6 +261,7 @@ public class RentalSystem {
             } else {
                 item = new VideoGame(id, title, rentalType, loanType, numCopies, rentalFee, rentalStatus);
             }
+            itemList.add(item);
             return item;
         }
     }
@@ -377,8 +390,10 @@ public class RentalSystem {
         }
     }
     public void addToCustomerRentedItems(String username, Item item) throws Exception {
+        System.out.println(item+"rental");
         for (int i = 0; i < customersList.size(); i++) {
             if (customersList.get(i).getUsername().equals(username)) {
+                System.out.println(customersList.get(i));
                 if(checkCustomerItemExist(customersList.get(i), item.getTitle())) {
                     throw new Exception("Item already exist in customer's list");
                 }

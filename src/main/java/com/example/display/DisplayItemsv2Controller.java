@@ -22,6 +22,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class DisplayItemsv2Controller {
     private Singleton singleton = Singleton.getInstance();
@@ -105,15 +108,14 @@ public class DisplayItemsv2Controller {
                     button.setOnAction((ActionEvent event) -> {
                         int index = getIndex();
                         Item item = getTableView().getItems().get(index);
+                        System.out.println(item.getTitle());
+
                         try {
                             singleton.rentalSystem.addToCustomerRentedItems(singleton.usernameLogIn, item);
                             System.out.println("Item has been rented successfully");
-                            if(!singleton.rentalSystem.writeCustomerToFile()){
-                                throw new Exception("Customer data has NOT saved successfully");
-                            }
-                            if(!singleton.rentalSystem.writeItemToFile()){
-                                throw new Exception("Item data has NOT saved successfully");
-                            }
+
+                            writeItemAndCustomerToFile();
+
                             System.out.println("Item has been rented and saved successfully");
 
                             singleton.setCustomerItemList();
@@ -127,6 +129,7 @@ public class DisplayItemsv2Controller {
                             }
                         }
                     });
+
                     break;
 
                 case "Return":
@@ -141,7 +144,7 @@ public class DisplayItemsv2Controller {
             }
         }
         public void returnAnItem(String username){
-            button.setOnAction((ActionEvent event) -> {        
+            button.setOnAction((ActionEvent event) -> {
                 int indexCustomer = singleton.findCustomerIndex(username);
 
                 Item item = getTableView().getItems().get(getIndex());
@@ -151,12 +154,9 @@ public class DisplayItemsv2Controller {
                     if(customer == null){
                         throw new Exception("Customer does not exist or it's have an error");
                     }
-                    if(!singleton.rentalSystem.writeCustomerToFile()){
-                        throw new Exception("Customer data has NOT saved successfully");
-                    }
-                    if(!singleton.rentalSystem.writeItemToFile()){
-                        throw new Exception("Item data has NOT saved successfully");
-                    }
+
+                    writeItemAndCustomerToFile();
+
                     System.out.println("Item has been returned successfully");
                     singleton.customerItemList.remove(item);
                     singleton.itemObservableList.set(indexItem, item);
@@ -180,6 +180,27 @@ public class DisplayItemsv2Controller {
             } else {
                 setGraphic(button);
             }
+        }
+    }
+
+    public void writeItemAndCustomerToFile() throws Exception {
+        ExecutorService executor = Executors.newFixedThreadPool(2);
+
+        // Submit tasks for writing item and customer data
+        Future<Boolean> itemFuture = executor.submit(() -> singleton.rentalSystem.writeItemToFile());
+        Future<Boolean> customerFuture = executor.submit(() -> singleton.rentalSystem.writeCustomerToFile());
+
+        // Wait for both tasks to complete
+        boolean itemWriteSuccess = itemFuture.get();
+        boolean customerWriteSuccess = customerFuture.get();
+
+        executor.shutdown(); // Shutdown the executor
+
+        if(!itemWriteSuccess){
+            throw new Exception("Customer data has NOT saved successfully");
+        }
+        if(!customerWriteSuccess){
+            throw new Exception("Item data has NOT saved successfully");
         }
     }
 
@@ -428,23 +449,5 @@ public class DisplayItemsv2Controller {
     public void newItemAction(ActionEvent event) throws IOException {
         singleton.modalDialog("NewItem.fxml");
     }
-
-
-//    public void searchAction() {
-//        String searchText = searchField.getText();
-//        ObservableList<Item> filteredItems = FXCollections.observableArrayList();
-//
-//        for (int i = 0; i < singleton.itemObservableList.size(); i++) {
-//            if (singleton.itemObservableList.get(i).getTitle().toLowerCase().contains(searchText.toLowerCase())) {
-//                filteredItems.add(singleton.itemObservableList.get(i));
-//            }
-//        }
-//        // update the table with the filtered items
-////        itemTable.getItems().clear();
-////        itemTable.getItems().addAll(filteredItems);
-//        SortedList<Item> sortedItems = new SortedList<>(filteredItems);
-//        sortedItems.comparatorProperty().bind(itemTable.comparatorProperty());
-//        itemTable.setItems(filteredItems);
-//    }
 
 }

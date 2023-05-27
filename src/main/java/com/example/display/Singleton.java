@@ -33,6 +33,7 @@ public class Singleton {
 
     private Singleton() {
         rentalSystem = new RentalSystem();
+        System.out.println(rentalSystem);
         itemObservableList = FXCollections.observableArrayList(rentalSystem.getItemsList());
         customerObservableList = FXCollections.observableArrayList(rentalSystem.getCustomersList());
     }
