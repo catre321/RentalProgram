@@ -6,7 +6,7 @@ C005,JohnCain,45SydneyRoad,0424325123,7,VIP,johnthebaby,123456,0
 C006,DylanCase,02WestDrive,0424125598,6,REGULAR,dylanc,2222222,0
 C007,Hoang,catfish,09090909,15,VIP,catre,catre,50
 C008,EmilySmith,17HarrisonStreet,0412345678,25,VIP,emilys,emilysmith,50
-C009,DavidJohnson,30GlenviewAvenue,0432123456,35,VIP,davidj,davidjohnson,70
+C009,DavidJohn,30Glenview,0432123456,35,VIP,davidj,davidjohnson,70
 C010,SarahWilliams,9ParkLane,0498765432,28,REGULAR,sarahw,sarah123,0
 C011,MichaelBrown,21OakwoodRoad,0423456789,19,REGULAR,michaelb,brownie,0
 C012,JessicaDavis,15MapleStreet,0487654321,32,VIP,jessicad,jessica321,60
